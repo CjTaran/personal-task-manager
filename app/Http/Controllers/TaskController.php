@@ -9,7 +9,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::orderBy('due_date')->orderBy('id')->get();
+        $tasks = Task::orderBy('due_date', 'asc')->get();
 
         return view('tasks.index', compact('tasks'));
     }
@@ -30,7 +30,8 @@ class TaskController extends Controller
 
         Task::create($validated);
 
-        return redirect()->route('home')->with('success', 'Task added successfully.');
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task added successfully!');
     }
 
     public function edit(Task $task)
@@ -49,24 +50,27 @@ class TaskController extends Controller
 
         $task->update($validated);
 
-        return redirect()->route('home')->with('success', 'Task updated successfully.');
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task updated successfully!');
     }
 
-    public function updateStatus(Request $request, Task $task)
+    public function updateStatus(Task $task)
     {
-        $validated = $request->validate([
-            'status' => 'required|in:Pending,Completed',
+        $task->update([
+            'status' => $task->status === 'Pending'
+                ? 'Completed'
+                : 'Pending',
         ]);
 
-        $task->update(['status' => $validated['status']]);
-
-        return redirect()->route('home')->with('success', 'Task status updated.');
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task status updated!');
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
 
-        return redirect()->route('home')->with('success', 'Task removed successfully.');
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task deleted successfully!');
     }
 }

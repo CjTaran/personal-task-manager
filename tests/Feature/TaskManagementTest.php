@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Task;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -29,5 +30,23 @@ class TaskManagementTest extends TestCase
             ->assertOk()
             ->assertSee('Buy groceries')
             ->assertSee('Pending');
+    }
+
+    public function test_user_can_delete_a_task(): void
+    {
+        $task = Task::create([
+            'task_name' => 'Submit report',
+            'description' => 'Finish final report',
+            'status' => 'Pending',
+            'due_date' => '2026-10-20',
+        ]);
+
+        $response = $this->delete('/tasks/'.$task->id);
+
+        $response->assertRedirect('/');
+
+        $this->assertDatabaseMissing('tasks', [
+            'id' => $task->id,
+        ]);
     }
 }

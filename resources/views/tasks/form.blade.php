@@ -15,7 +15,7 @@
     @endif
 
     <div class="form-group">
-        <label for="task_name">Task Name</label>
+        <label for="task_name">Name</label>
         <input id="task_name" type="text" name="task_name" value="{{ $taskName }}" required>
         @error('task_name')
             <div class="error">{{ $message }}</div>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description">Assignment Details</label>
         <textarea id="description" name="description">{{ $description }}</textarea>
         @error('description')
             <div class="error">{{ $message }}</div>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="actions">
-        <button type="submit" class="btn-primary">{{ $isEdit ? 'Update Task' : 'Save Task' }}</button>
-        <a href="{{ route('home') }}" class="btn-secondary">Back</a>
+        <button type="submit" class="primary-btn">{{ $isEdit ? 'Update Task' : 'Save Task' }}</button>
+        <a href="{{ route('home') }}" class="secondary-btn">Back</a>
     </div>
 </form>

@@ -16,4 +16,12 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_home_page_is_safe_when_task_table_is_missing(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertOk()
+            ->assertSee('Personal Task Manager');
+    }
 }
