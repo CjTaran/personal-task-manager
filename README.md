@@ -1,50 +1,67 @@
-# Laravel Mini Project: Personal Task Manager
+# Personal Task Manager
+
 ## Project Code
 WST21-PM-2026-SF
+
 ## Student Name
 Couny Jheem Taran
+
 ## Course & Year
-2nd year 
+BSIT 2nd Year
+
 ## Database Used
-SQLite
+Sqlite
+
 ## Features
-- Add Task – Create a new task.
-- View Tasks – Display all saved tasks.
-- Edit Task – Update task information.
-- Delete Task – Remove a task.
-- Update Status – Set a task as Pending or Completed.
-## Project Overview
-The Personal Task Manager is a simple Laravel-based task management system. It allows users to manage their personal tasks by adding, viewing, editing, deleting, and updating task statuses.
-The project uses the Laravel development flow:
 
-**Routes → Controller → Model → Database → Blade**
+- Add Task
+- View Tasks
+- Edit Task
+- Delete Task
+- Update Status
 
-## How It Works
-1. Open the Personal Task Manager homepage.
-2. Click Add New Task.
-3. Enter the task name, description, status, and due date.
-4. Click Save Task.
-5. The task is saved to the database and displayed on the task list.
-6. Click Edit to update a task.
-7. Change the status to Pending or Completed.
-8. Click Delete to remove a task.
+### 1. View Tasks
+![alt text](screenshots/AddTask.png)
+
+### 2. Add Task
+
+![Add Task](screenshots/AddTask.png)
+
+### 3. Task Added Successfully
+
+![alt text](screenshots/Successfully.png)
+
+### 4. Edit Task
+
+![alt text](screenshots/EditTask.png)
+
+### 5. Update Status
+
+![alt text](screenshots/MarkComplete.png)
+
+### 6. Delete Task
+![alt text](screenshots/deleted.png)
+
+## System Workflow
+The system follows the Laravel flow:
+
+**User Interface → Route → Controller → Model → MySQL Database → Blade View
+
+1. The user interacts with the task management interface.
+2. The request is sent to the appropriate Laravel route.
+3. The route sends the request to the Task Controller.
+4. The controller validates and processes the task information.
+5. The Task Model communicates with the MySQL database.
+6. The database stores or updates the task information.
+7. Laravel returns the updated information to the Blade view.
+8. The user sees the updated task list and system notification.
 
 ## Technologies Used
+
 - Laravel
 - PHP
+- MySQL
 - Blade
-- SQLite
 - HTML
 - CSS
-
-### Homepage
-
-
-### Add Task
-![Add Task](screenshots/add-task.png)
-
-### Edit Task
-![Edit Task](screenshots/edit-task.png)
-
-### Task Status
-![Task Status]
+- GitHub Codespaces
